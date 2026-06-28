@@ -127,6 +127,12 @@ app.delete('/api/students/:id', async (req, res) => {
     }
 });
 
+// Serve the main front-end index.html file on the root URL
+const path = require('path');
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 // Export the app context for Vercel
 module.exports = app;
 
