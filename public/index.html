@@ -5,12 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Record Management System</title>
     <style>
+        :root {
+            --purple: #a855f7; /* Defining the purple variable for your logo glow */
+        }
+
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background: #f4f6f9; color: #333; padding: 40px 20px; }
         .container { max-width: 1000px; margin: 0 auto; }
-        h1 { text-align: center; margin-bottom: 30px; color: #2c3e50; }
+        
+        /* Navbar Header Layout */
+        .header-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #2c3e50;
+            padding: 15px 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        /* Your Custom JemVerse Logo Styling */
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #FFF;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .logo:hover {
+            opacity: 0.9;
+        }
+        .logo span {
+            color: var(--purple);
+            text-shadow: 0 0 10px var(--purple);
+        }
+
+        .header-nav h1 { color: white; margin-bottom: 0; font-size: 1.5rem; }
         .grid { display: grid; grid-template-columns: 1fr 2fr; gap: 30px; }
-        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { 
+            .grid { grid-template-columns: 1fr; } 
+            .header-nav { flex-direction: column; gap: 15px; text-align: center; }
+        }
         .card { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
         h2 { margin-bottom: 20px; font-size: 1.2rem; color: #34495e; border-bottom: 2px solid #ecf0f1; padding-bottom: 8px; }
         .form-group { margin-bottom: 15px; }
@@ -39,7 +76,11 @@
 <body>
 
 <div class="container">
-    <h1>🎓 Student Record Management System</h1>
+    <!-- Top Modern Navbar Header Row -->
+    <div class="header-nav">
+        <a href="https://jemverse.online" target="_blank" class="logo">JEM<span>VERSE</span></a>
+        <h1>🎓 Student Record Management System</h1>
+    </div>
     
     <div class="grid">
         <div class="card">
@@ -213,7 +254,6 @@
         setTimeout(() => { alertDiv.style.display = 'none'; }, 4000);
     }
 
-    // Initial Database Pull on load
     fetchStudents();
 </script>
 </body>
